@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_rates
+    description: "Cleaned ECB exchange rates, one row per currency per day."
+    columns:
+      - name: currency
+        description: "Three-letter currency code (ISO 4217)."
+        tests:
+          - not_null
+          - unique
+      - name: rate
+        description: "Exchange rate against the euro."
+        tests:
+          - not_null
+      - name: rate_date
+        description: "Reference date of the exchange rate."
+        tests:
+          - not_null
